@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../core/constants/app_colors.dart';
 import '../services/app_state_service.dart';
 import 'dashboard/dashboard_tab.dart';
@@ -45,25 +46,26 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
 
         return Scaffold(
           backgroundColor: const Color(0xFFF8FAFC),
-          body: IndexedStack(
-            index: _currentIndex,
-            children: tabs,
-          ),
+          body: IndexedStack(index: _currentIndex, children: tabs),
           bottomNavigationBar: Container(
             decoration: const BoxDecoration(
               color: Colors.white,
-              border: Border(top: BorderSide(color: Color(0xFFE2E8F0), width: 1)),
+              border: Border(
+                top: BorderSide(color: Color(0xFFE2E8F0), width: 1),
+              ),
             ),
             child: BottomNavigationBar(
               currentIndex: _currentIndex,
               backgroundColor: Colors.white,
               selectedItemColor: AppColors.primary,
-              unselectedItemColor: const Color(0xFF94A3B8),
+              unselectedItemColor: const Color.fromARGB(255, 98, 63, 63),
               type: BottomNavigationBarType.fixed,
               selectedFontSize: 11,
               unselectedFontSize: 11,
               selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w800),
-              unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.w600),
+              unselectedLabelStyle: const TextStyle(
+                fontWeight: FontWeight.w600,
+              ),
               onTap: (index) {
                 setState(() {
                   _currentIndex = index;
@@ -116,7 +118,8 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (_) => ProfileScreen(appState: widget.appState),
+                          builder: (_) =>
+                              ProfileScreen(appState: widget.appState),
                         ),
                       );
                     },
@@ -154,8 +157,14 @@ class _CommunityHubTab extends StatelessWidget {
             labelStyle: TextStyle(fontWeight: FontWeight.w800, fontSize: 13),
             unselectedLabelColor: AppColors.textSecondary,
             tabs: [
-              Tab(icon: Icon(Icons.menu_book_rounded, size: 20), text: 'Edukasi & Kalkulator'),
-              Tab(icon: Icon(Icons.volunteer_activism_rounded, size: 20), text: 'Bantuan Darurat'),
+              Tab(
+                icon: Icon(Icons.menu_book_rounded, size: 20),
+                text: 'Edukasi & Kalkulator',
+              ),
+              Tab(
+                icon: Icon(Icons.volunteer_activism_rounded, size: 20),
+                text: 'Bantuan Darurat',
+              ),
             ],
           ),
         ),
