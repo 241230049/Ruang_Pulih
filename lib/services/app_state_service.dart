@@ -40,6 +40,16 @@ class AppStateService extends ChangeNotifier {
     notifyListeners();
   }
 
+  void updateAvatar(String newAvatar) {
+    _currentUser = _currentUser.copyWith(avatar: newAvatar);
+    notifyListeners();
+  }
+
+  void updateAliasName(String newAlias) {
+    _currentUser = _currentUser.copyWith(aliasName: newAlias);
+    notifyListeners();
+  }
+
   // Update streak & saved money
   void incrementStreak() {
     _currentUser = _currentUser.copyWith(
